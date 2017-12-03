@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-type" content="text/css; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <title>LaForchetta</title>
+  <meta name="keywords" content="Ristoranti, milano, cibo">
+  <meta name="description" content="I migliori ristoranti di Milano ti stanno aspettando">
+
+  <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+
+
+<body onload="init()">
+  <header>
+    <nav>
+        <ul>
+          <li><img src="assets/images/LaForchetta_Logo.png"></li>
+          <li><a href="index.html">Homepage</a></li>
+          <li><a href="javascript:searchArea()">Ristoranti</a></li>
+          <li id="profilo"></li>
+          <form id="login_form" action="/" method="POST">
+          <script>
+          //sessionStorage.removeItem("user");
+          if(!sessionStorage.user){
+
+            var log=document.getElementById("login_form");
+      			log.innerHTML='<li id="login"><input type="password" name="pwd" maxlength="10" ></li>'
+              		+'<li id="login"><label for="pass">Password</label></li>'
+              		+'<li id="login"><input type="text" name="username" maxlength="60"></li>'
+              		+'<li id="login"><label for="username">Username</label></li>'
+                  +'<li id="login"><input type="reset" value="Cancella"></li>'
+              		+'<li id="login"><button onclick="login()">Ok</button></li>';
+          }else{
+            var profilo=document.getElementById("profilo");
+            profilo.innerHTML='<a href="profilo.html">Profilo</a>';
+            var log=document.getElementById("login_form");
+      			log.innerHTML='<button id="exit" onclick="esci_account()">exit</button>';
+          }
+          </script>
+          </form>
+        </ul>
+    </nav>
+
+    <br>
+
+    <div class="search">
+              <input type="searchbox" placeholder="Search here..." id="search_value" onkeydown="invio(event)" />
+              <input id="search_button" type="submit" onclick="searchArea()" value="Cerca">
+    </div>
+
+
+  </header>
+
+
+  <div id="img">
+    <img id="immagine">
+  </div>
+
+
+<div id="reg">
+  <form id="mio_form" action="/" method="POST" >
+    <script>
+    //sessionStorage.removeItem("user");
+    if(!sessionStorage.user){
+      var img=document.getElementById("immagine");
+      if(img && img.style){
+        img.style.width = '90%';
+        img.src = 'assets/images/restaurant_table1920x1080.jpg';
+      }
+
+      var log=document.getElementById("mio_form");
+      log.innerHTML='<fieldset ><legend>Registrazione</legend><table border="0">'
+        +'<tr><td>Nome</td><td> <input id="nome" type="text" name="nome" value=""></td></tr>'
+        +'<tr><td>Cognome</td><td> <input id="cognome" type="text" name="cognome" value=""></td>'
+        +'<tr><td>Username</td><td> <input id="username" type="username" name="username" value=""></td></tr>'
+        +'<tr><td>Password</td><td> <input id="password" type="password" name="pwd" value=""></td></tr>'
+        +'<tr><td><button onclick="crea_user()">Conferma</button></td><td><input type="reset" value="Cancella"></td></tr>'
+        +'</table></fieldset>';
+    }else{
+      var img=document.getElementById("immagine");
+      var divimg=document.getElementById("img");
+      if(img && img.style){
+        divimg.style.width = '100%';
+        img.src="assets/images/Restaurant-2.jpg";
+      }
+    }
+    </script>
+  </form>
+</div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

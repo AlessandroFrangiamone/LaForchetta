@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 250px;
+        width: 500px;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+
+    document.write(JSON.parse(localStorage.gps));
+      function initMap() {
+        //ho dovuto ricreare l'oggetto LatLng perchè l'oggetto inserito nel file JSON non era corretto
+        var myLatLng = new google.maps.LatLng(Object.values(JSON.parse(localStorage.gps))[0],Object.values(JSON.parse(localStorage.gps))[1]);
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Ristorante'
+        });
+        localStorage.gps=null;
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-17ODbzdeJ7Ri8ry3KSEnl0AXpe4pSxQ&callback=initMap">
+    </script>
+
+
+  </body>
+</html>

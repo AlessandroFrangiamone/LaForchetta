@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-type" content="text/css; charset=UTF-8" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+  <title>LaForchetta</title>
+  <meta name="keywords" content="Ristoranti, milano, cibo">
+  <meta name="description" content="I migliori ristoranti di Milano ti stanno aspettando">
+
+  <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+
+
+<body onload="init()">
+  <header>
+    <nav>
+        <ul>
+          <li><img src="assets/images/LaForchetta_Logo.png"></li>
+          <li><a href="index.html">Homepage</a></li>
+          <li><a href="javascript:searchArea()">Ristoranti</a></li>
+          <li id="profilo"></li>
+          <form id="login_form" action="/" method="POST">
+          <script>
+          //sessionStorage.removeItem("user");
+          if(!sessionStorage.user){
+
+          }else{
+            var profilo=document.getElementById("profilo");
+            profilo.innerHTML='<a href="profilo.html">Profilo</a>';
+            var log=document.getElementById("login_form");
+      			log.innerHTML='<button id="exit" onclick="esci_account()">exit</button>';
+          }
+          </script>
+          </form>
+        </ul>
+    </nav>
+
+    <div class="search">
+              <input type="searchbox" id="search_value" onkeydown="invio(event)"/>
+              <input id="search_button" type="submit" onclick="searchArea()" value="Cerca">
+    </div>
+
+  </header>
+
+
+  <div id="risultato_ricerca">
+  </div>
+
+  <script src="search_restaurant.js"></script>
+
+</body>
+</html>
