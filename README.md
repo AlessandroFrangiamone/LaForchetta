@@ -1,7 +1,5 @@
 # LaForchetta
 
-Progetto per l'esame di Applicazioni Web e Cloud (Anno 2017) realizzato da Alessandro Frangiamone
-
 Il progetto consiste nella realizzazione dell’applicazione web “La Forchetta”.
 Un portale che permette di gestire la ricerca e la prenotazione di ristoranti sparsi su tutto il territorio italiano.
 La Forchetta gestisce un numero non conosciuto a priori di ristoranti.
@@ -18,3 +16,5 @@ Le principali operazioni significative del sito sono:
 -	Prenotazione
 
 Una presentazione del sito fatta in modo più dettagliato è presente nella cartella relazione, file: "La Forchetta - Relazione Progetto(Frangiamone).docx"
+
+Progetto svolto per l'esame di Applicazioni Web e Cloud (Anno 2017) realizzato da Alessandro Frangiamone
